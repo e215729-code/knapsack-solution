@@ -10,19 +10,17 @@ def unbounded_knapsack_dp(capacity, size, price):
     n = len(size)
     dp = [0] * (capacity + 1)
 
-    start_time = time.time()
-
-    for c in range(capacity + 1):
-        for i in range(n):
-            if size[I] <= c:
-                dp[c] = max(dp[c], price[I] + dp[c - size[I]])
-
-    end_time = time.time()
-
-    execution_time = end_time - start_time
+    for i in range(1, n + 1):
+        for w in range(capacity + 1):
+            if weights[i - 1] <= w:
+                dp[i][w] = max(
+                    dp[i - 1][w],
+                    dp[i - 1][w - weights[i - 1]] + values[i - 1]
+                )
+            else:
+                dp[i][w] = dp[i - 1][w]
 
     return dp[capacity], execution_time
 
 max_price, exec_time = unbounded_knapsack_dp(capacity, size, price)
 print(f"ナップサックの最大価値: {max_price}”)
-print(f"実行時間: {exec_time:.6f} 秒")
