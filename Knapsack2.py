@@ -4,7 +4,6 @@ size  = [ 4, 8, 3, 5, 9, 2, 3, 1, 5, 2, 4, 2, 7, 10, 3, 13, 11, 8]
 price = [ 6, 12, 4, 3, 7, 1, 3, 2, 7, 3, 4, 2, 10, 13, 5, 16, 14, 9]
 
 
-import time
 
 def unbounded_knapsack_dp(capacity, size, price):
     n = len(size)
